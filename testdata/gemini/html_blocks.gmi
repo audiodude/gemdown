@@ -1,0 +1,3 @@
+Hello, this is an example of a file that contains embedded html!
+This is after the line break.
+Here is some text inside a div! It also includes green text!

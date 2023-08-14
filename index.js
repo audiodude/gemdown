@@ -1,3 +1,5 @@
+import { parse } from 'node-html-parser';
+
 export const geminiRenderer = {
   // Block-level elements
   code(code, infostring, escaped) {
@@ -7,7 +9,8 @@ export const geminiRenderer = {
     return `\n> ${quote.trim().split('\n').join('\n> ')}\n`;
   },
   html(html) {
-    return '';
+    const root = parse(html);
+    return root.textContent;
   },
   heading(text, level, raw, slugger) {
     return `\n${'#'.repeat(level)} ${text}\n`;

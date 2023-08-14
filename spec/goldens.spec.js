@@ -19,7 +19,7 @@ async function loadGemini(slug) {
 
 // Add new golden slugs here. There should be a <slug>.md file with the input
 // and a <slug>.gmi file with the output, in the appropriate folders.
-const SLUGS = ['sample'];
+const SLUGS = ['sample', 'html_blocks'];
 
 async function* allMarkdown() {
   yield* walk(path.join('testdata', 'markdown'));

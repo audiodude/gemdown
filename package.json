@@ -6,7 +6,8 @@
   "author": "Travis Briggs <audiodude@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "marked": "^4.2.12"
+    "marked": "^4.3.0",
+    "node-html-parser": "^6.1.5"
   },
   "type": "module",
   "devDependencies": {
