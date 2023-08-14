@@ -65,8 +65,8 @@ export const geminiRenderer = {
   text(text) {
     return text;
   },
-
-  postProcess(gemText) {
-    return gemText.trimStart();
-  },
 };
+
+export function postprocess(html) {
+  return html.trimStart();
+}

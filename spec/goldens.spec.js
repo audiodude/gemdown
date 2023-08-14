@@ -3,7 +3,7 @@ import * as path from 'path';
 
 import { marked } from 'marked';
 
-import { geminiRenderer } from '../index.js';
+import { geminiRenderer, postprocess } from '../index.js';
 
 async function loadMarkdown(slug) {
   const filePath = path.resolve(
@@ -21,20 +21,16 @@ async function loadGemini(slug) {
 // and a <slug>.gmi file with the output, in the appropriate folders.
 const SLUGS = ['sample', 'html_blocks'];
 
-async function* allMarkdown() {
-  yield* walk(path.join('testdata', 'markdown'));
-}
-
 describe('golden files', () => {
   beforeAll(() => {
-    marked.use({ renderer: geminiRenderer });
+    marked.use({ hooks: { postprocess }, renderer: geminiRenderer });
   });
 
   for (const slug of SLUGS) {
     it(`${slug}.md matches golden`, async () => {
       const markdown = await loadMarkdown(slug);
       const gemini = await loadGemini(slug);
-      const actual = geminiRenderer.postProcess(marked.parse(markdown));
+      const actual = marked.parse(markdown);
       expect(actual).toEqual(gemini);
     });
   }
