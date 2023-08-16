@@ -3,7 +3,7 @@ import * as path from 'path';
 
 import { marked } from 'marked';
 
-import { geminiRenderer, postprocess } from '../index.js';
+import { postprocess, renderer, walkTokens } from '../index.js';
 
 async function loadMarkdown(slug) {
   const filePath = path.resolve(
@@ -23,7 +23,7 @@ const SLUGS = ['sample', 'html_blocks'];
 
 describe('golden files', () => {
   beforeAll(() => {
-    marked.use({ hooks: { postprocess }, renderer: geminiRenderer });
+    marked.use({ hooks: { postprocess }, renderer, walkTokens });
   });
 
   for (const slug of SLUGS) {
