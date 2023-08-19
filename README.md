@@ -63,3 +63,13 @@ In golden.spec.js, add this slug to the following line:
 ```js
 const SLUGS = ['sample', 'html_blocks'];
 ```
+
+## Diffing goldens
+
+If a golden test fails, the console output usually isn't very helpful. For that reason, the golden tests also write the rendered output from `md2gemini` to the path `testdata/output`, with the file slug and a `.gmi` extension. When a test fails, you can run:
+
+```bash
+diff testdata/gemini/sample.gmi testdata/output/sample.gmi
+```
+
+Replace `sample.gmi` with the name of the test that failed.

@@ -10,7 +10,7 @@ Marked[1] lets you convert Markdown[2] into HTML. Markdown is a simple text form
 * Type in stuff on the left.
 * See the live updates on the right.
 
-That&#39;s it. Pretty simple. There&#39;s also a drop-down option above to switch between various views:
+That's it. Pretty simple. There's also a drop-down option above to switch between various views:
 
 * Preview: A live display of the generated HTML as it would render in a browser.
 * HTML Source: The generated HTML before your browser makes it pretty.
@@ -22,16 +22,16 @@ That&#39;s it. Pretty simple. There&#39;s also a drop-down option above to switc
 
 ## Why Markdown?
 
-It&#39;s easy. It&#39;s not overly bloated, unlike HTML. Also, as the creator of markdown[1] says,
+It's easy. It's not overly bloated, unlike HTML. Also, as the creator of markdown[1] says,
 
 => http://daringfireball.net/projects/markdown/ 1: http://daringfireball.net/projects/markdown/
 
-> The overriding design goal for Markdown&#39;s
+> The overriding design goal for Markdown's
 > formatting syntax is to make it as readable
 > as possible. The idea is that a
 > Markdown-formatted document should be
 > publishable as-is, as plain text, without
-> looking like it&#39;s been marked up with tags
+> looking like it's been marked up with tags
 > or formatting instructions
 
 Ready to start writing? Either start changing stuff on the left or

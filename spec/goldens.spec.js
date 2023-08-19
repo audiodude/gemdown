@@ -20,7 +20,7 @@ async function loadGemini(slug) {
 
 // Add new golden slugs here. There should be a <slug>.md file with the input
 // and a <slug>.gmi file with the output, in the appropriate folders.
-const SLUGS = ['sample', 'html_blocks'];
+const SLUGS = ['sample', 'html_blocks', 'entities'];
 
 describe('golden files directly', () => {
   beforeAll(() => {
@@ -47,6 +47,7 @@ describe('golden files with md2gemini', () => {
       const markdown = await loadMarkdown(slug);
       const gemini = await loadGemini(slug);
       const actual = md2gemini(markdown);
+      fs.writeFileSync(path.join('testdata', 'output', `${slug}.gmi`), actual);
       expect(actual).toEqual(gemini);
     });
   }
