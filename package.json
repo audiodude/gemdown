@@ -1,8 +1,8 @@
 {
   "name": "gemdown",
   "version": "0.1.0",
-  "description": "Render markdown files in the Gemini .gmi format",
-  "main": "index.js",
+  "description": "Render Markdown files in the Gemini .gmi format",
+  "main": "lib/index.js",
   "author": "Travis Briggs <audiodude@gmail.com>",
   "license": "MIT",
   "dependencies": {
