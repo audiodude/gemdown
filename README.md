@@ -37,6 +37,16 @@ const gemtext = md2gemini(markdown);
 console.log(gemtext);
 ```
 
+## Options
+
+The library currently supports the following options:
+
+| Option name      | Default value | Description                                                                                                                                                                                                                    |
+| ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| renderBoldItalic | false         | If true, text that has Markdown `**bold**` or `_italic_` indicators will render that way in the output. Note that this doesn't necessarily preserve all of the idiosyncratic ways of specifying these styles (eg: `__bold__`). |
+
+The can be passed as a simple object as the second argument to `md2gemini`. They can also be omitted completely.
+
 # Development
 
 ## Installation

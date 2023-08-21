@@ -1,9 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-import { marked } from 'marked';
-
-import { postprocess, renderer, walkTokens } from '../lib/extensions.js';
 import { md2gemini } from '../lib/index.js';
 
 async function loadMarkdown(slug) {
@@ -22,26 +19,7 @@ async function loadGemini(slug) {
 // and a <slug>.gmi file with the output, in the appropriate folders.
 const SLUGS = ['sample', 'html_blocks', 'entities'];
 
-describe('golden files directly', () => {
-  beforeAll(() => {
-    marked.use({ hooks: { postprocess }, renderer, walkTokens });
-  });
-
-  for (const slug of SLUGS) {
-    it(`${slug}.md matches golden`, async () => {
-      const markdown = await loadMarkdown(slug);
-      const gemini = await loadGemini(slug);
-      const actual = marked.parse(markdown);
-      expect(actual).toEqual(gemini);
-    });
-  }
-});
-
-describe('golden files with md2gemini', () => {
-  beforeAll(() => {
-    marked.use({ hooks: { postprocess }, renderer, walkTokens });
-  });
-
+describe('golden files', () => {
   for (const slug of SLUGS) {
     it(`${slug}.md matches golden`, async () => {
       const markdown = await loadMarkdown(slug);
