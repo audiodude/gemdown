@@ -29,6 +29,17 @@ describe('renderBoldItalic', () => {
     it('renders with the markings removed', () => {
       const actual = md2gemini(markdown);
       expect(actual).toEqual('This is bold. This is italic.\n');
-    })
+    });
+  });
+});
+
+describe('useWikiLinks', () => {
+  describe('when true', () => {
+    it('renders with wiki links replsced by gemini links', () => {
+      const markdown = `This is [[markdown|some markdown text]] with [[wikilinks]].`;
+      const actual = md2gemini(markdown, { useWikiLinks: true });
+      expect(actual).toEqual('This is some markdown text[1] with wikilinks[2].\n\n' + '=> markdown 1: markdown\n' +
+        '=> wikilinks 2: wikilinks\n');
+    });
   });
 });

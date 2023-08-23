@@ -24,6 +24,8 @@ The `gemdown` package uses [ECMAScript modules](https://nodejs.org/api/esm.html)
 
 For now, this package exposes a single function called `md2gemini`. It takes a string containing raw Markdown text and returns a string which contains raw gemtext.
 
+This package uses [Semantic Versioning](https://semver.org/) and is **currently pre 1.0.0 release, so the API may change drastically at any point**.
+
 From `example.js`:
 
 ```
@@ -42,8 +44,9 @@ console.log(gemtext);
 The library currently supports the following options:
 
 | Option name      | Default value | Description                                                                                                                                                                                                                    |
-| ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- |
 | renderBoldItalic | false         | If true, text that has Markdown `**bold**` or `_italic_` indicators will render that way in the output. Note that this doesn't necessarily preserve all of the idiosyncratic ways of specifying these styles (eg: `__bold__`). |
+| useWikiLinks     | false         | If true, Mediawiki/Wikipedia style links ()`[[foo/link.html                                                                                                                                                                    | like this]]`) are converted to Markdown links and used to create Gemini link footers. |
 
 The can be passed as a simple object as the second argument to `md2gemini`. They can also be omitted completely.
 
