@@ -11,9 +11,16 @@
   },
   "type": "module",
   "devDependencies": {
-    "jasmine": "^4.5.0"
+    "husky": ">=6",
+    "jasmine": "^4.5.0",
+    "lint-staged": ">=10",
+    "prettier": "3.0.2"
   },
   "scripts": {
-    "test": "jasmine"
+    "test": "jasmine",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }
