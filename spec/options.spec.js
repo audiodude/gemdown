@@ -42,4 +42,20 @@ describe('useWikiLinks', () => {
         '=> wikilinks 2: wikilinks\n');
     });
   });
+
+  describe('when false', () => {
+    it(`doesn't render with wiki links replsced by gemini links`, () => {
+      const markdown = `This is [[markdown|some markdown text]] with [[wikilinks]].`;
+      const actual = md2gemini(markdown, { useWikiLinks: false });
+      expect(actual).toEqual('This is [[markdown|some markdown text]] with [[wikilinks]].\n');
+    });
+  });
+
+  describe('when absent', () => {
+    it(`doesn't render with wiki links replsced by gemini links`, () => {
+      const markdown = `This is [[markdown|some markdown text]] with [[wikilinks]].`;
+      const actual = md2gemini(markdown);
+      expect(actual).toEqual('This is [[markdown|some markdown text]] with [[wikilinks]].\n');
+    });
+  });
 });
