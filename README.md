@@ -33,7 +33,7 @@ import { md2gemini } from 'gemdown';
 
 const markdown = `This is some [Markdown](https://daringfireball.net/projects/markdown/)! Links are extracted to the end of the paragraph.
 
-Here's a second paragraph! Things like **bold** and _italic_ are ignored.`;
+Here's a second paragraph! Things like **bold** and _italic_ are ignored unless options are set.`;
 
 const gemtext = md2gemini(markdown);
 console.log(gemtext);
@@ -43,12 +43,14 @@ console.log(gemtext);
 
 The library currently supports the following options:
 
-| Option name      | Default value | Description                                                                                                                                                                                                                    |
-|------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| renderBoldItalic | false         | If true, text that has Markdown `**bold**` or `_italic_` indicators will render that way in the output. Note that this doesn't necessarily preserve all of the idiosyncratic ways of specifying these styles (eg: `__bold__`). |
-| useWikiLinks     | false         | If true, Mediawiki/Wikipedia style links are converted to Markdown links and used to create Gemini link footers                                                                                                                |
+| Option name      | Type    | Default value | Description                                                                                                                                                                                                                    |
+| ---------------- | ------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| renderBoldItalic | boolean | false         | If true, text that has Markdown `**bold**` or `_italic_` indicators will render that way in the output. Note that this doesn't necessarily preserve all of the idiosyncratic ways of specifying these styles (eg: `__bold__`). |
+| useWikiLinks     | boolean | false         | If true, Mediawiki/Wikipedia style links are converted to Markdown links and used to create Gemini link footers                                                                                                                |
+| wikiLinksPrefix  | string  | ''            | **Only works with `useWikiLinks`**. String to prefix the output of wikiLinks with. If set to, eg `'foo/'`, `[[bar]]` ouputs a link of `'foo/bar'`. Can be used with `wikiLinksSuffix`.                                         |
+| wikiLinksSuffix  | string  | ''            | **Only works with `useWikiLinks`**. String to append to the output of wikiLinks. If set to, eg `'.html'`, `[[bar]]` ouputs a link of `'bar.html'`. Can be used with `wikiLinksPrefix`.                                         |
 
-The can be passed as a simple object as the second argument to `md2gemini`. They can also be omitted completely.
+These can be passed as a simple object as the second argument to `md2gemini`. They can also be omitted completely.
 
 # Development
 
@@ -74,7 +76,7 @@ The should have the same file "slug", aka name without extension.
 In golden.spec.js, add this slug to the following line:
 
 ```js
-const SLUGS = ['sample', 'html_blocks'];
+const SLUGS = ["sample", "html_blocks"];
 ```
 
 ## Diffing goldens
